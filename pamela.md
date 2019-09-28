@@ -1,2 +1,0 @@
-Pamela Abigail 
-Pachacama simbaña
