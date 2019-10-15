@@ -1,0 +1,2 @@
+pamela@gmail.com;1234;pamela;2019-10-09
+leslie@gmail.com;1234;leslie;2019-10-15
