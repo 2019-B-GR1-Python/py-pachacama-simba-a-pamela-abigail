@@ -1,0 +1,7 @@
+Nombre:Tortillas,Precio: 7 usd
+Nombre:Ceviche,Precio: 5 usd
+Nombre:Fritada,Precio: 6 usd
+Nombre:Morocho,Precio: 2 usd
+Nombre:Papas con cuero,Precio:3,50 usd
+Nombre:Pescado frito,Precio:5 usd
+Nombre:Encebollado,Precio:7 usd
