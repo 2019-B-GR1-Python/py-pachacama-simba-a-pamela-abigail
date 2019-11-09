@@ -1,5 +1,0 @@
-Nombre:Papas,Cantidad: 5 libras
-Nombre:Huevo,Cantidad: 2 unidades
-Nombre:Remolacha,Cantidad: 3 libras
-Nombre:Lechuga,Cantidad: 2 unidades
-Nombre:Carne, Cantidad: 5 libras
