@@ -1,0 +1,5 @@
+Nombre:Papas,Cantidad: 5 libras,Precio: 3 usd
+Nombre:Huevo,Cantidad: 2 unidades,Precio: 0,10 usd
+Nombre:Remolacha,Cantidad: 3 libras,Precio: 2 usd
+Nombre:Lechuga,Cantidad: 2 unidades,Precio: 2 usd
+Nombre:Carne, Cantidad: 5 libras,Precio: 10 usd
