@@ -106,14 +106,3 @@ ciudades_uno.tail(2)
 ciudades_uno.sort_values(ascending = False).head(2)
 ciudades_uno.sort_values().head(2)
 ciudades_uno.sort_values().tail(2)
-
-
-
-
-
-
-
-
-
-
-
