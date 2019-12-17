@@ -7,6 +7,7 @@ Created on Tue Dec  3 07:56:50 2019
 
 import pandas as pd
 import os
+import sqlite3
 
 path_guardado_completo = "C://Users//USRBET//Documents//GitHub//py-pachacama-simba-a-pamela-abigail//02-pandas//data//artwork_data_completo.pickle"
 df5 = pd.read_pickle(path_guardado_completo)
@@ -52,17 +53,21 @@ formato_artista = {"type":"2_color_scale",
 hoja_artistas.conditional_format(rango_celdas, formato_artista)
 writer.save()
 
-num_artist.to_excel(writer, sheet_name = 'Graficos')
-hoja_graficos = writer.sheets['Graficos']
-chart = hoja_graficos.add_chart({'type': 'line'})
-chart.add_series({
-    'values': '=Artistas!$B$2:$b$4',
-    'marker': {
-        'type': 'square',
-        'size': 8,
-        'border': {'color': 'black'},
-        'fill':   {'color': 'red'},
-    },
-})
+
+#####SQL######
+with sqlite3.connect("bdd_artist.db") as conexion:
+    df5.to_sql('py_artist', conexion)
+
+###### mysql#####
+##    df5.to_sql('tabla_mysql',conexion)
+
+### JSON#####
+df.to_json('artistas.json')
+df.to_json('artistas_tabla.json',orient='table')
+
+
+
+
+
 
 
