@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* ID
+            # + nombreId
+        */
+        #titulo-uno{
+            background-color: red;
+        }
+        /* NOMBRE-ETIQUETA
+            nombre-etiqueta
+        */
+        p{
+            color:white;
+            background-color: black;
+        }
+        body{
+            background-color: tomato;
+        }
+        /* Clases 
+            . + nombre-clase
+        */
+        .texto-amarillo{
+            color: yellow;
+        }
+        .fondo-verde{
+            background-color: green;
+        }
+        
+        /* Jerarquia 
+            Style > ID > Clase > Etiqueta
+            ultimo definido >
+        */
+        .texto-azul{
+            color: blue;
+        }
+        .texto-cafe{
+            color: brown;
+        }
+        /* Etiqueta dentro de otra */
+
+        body > ul > li > p{
+            background-color: coral;
+            color: darkgrey;
+        }
+        li > p.texto-amarillo{
+            color: goldenrod;
+        }
+        p.texto-azul.texto-amarillo.texto-cafe.texto-blanco{
+            color: pink;
+        }
+
+    </style>
+</head>
+<body>
+    <h1  class="texto-amarillo">Titulo</h1>
+    <p id="titulo-uno"
+        class="fondo-verde"
+        style="background-color: indigo;">
+     Mi mamá
+    </p>
+    <p class="texto-blanco texto-cafe texto-azul  texto-amarillo">
+        me mima
+    </p>
+    <ul>
+        <li>
+            <p>
+                Muy
+            </p>
+        </li>
+        <li>
+            <p>
+                Buenos
+            </p>
+        </li>
+        <li>
+            <p class="texto-amarillo">
+                Dias
+            </p>
+        </li>
+    </ul>
+
+    <style>
+        .texto-blanco{
+            color: white;
+        }
+    </style>
+</body>
+</html>
