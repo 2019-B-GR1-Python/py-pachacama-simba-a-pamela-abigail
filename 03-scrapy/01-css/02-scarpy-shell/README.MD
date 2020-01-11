@@ -58,5 +58,11 @@ $ response.css ('.authors::text').extract_first()
 $ response.css ('span.text').extract()
 $ response.css ('span.text::text').extract()
 $ response.css ('.tag::text').extract()
-$ response.css ('div.tags.tag::text').extract()
+$ response.css ('.tags > tag::text').extract()
+$ response.css ('div.tags > a.tag::text').extract()
+$ response.css ('.tags > tag::attr(href)').extract()
+$ response.css ('div.quote> span > a ::attr(href)').extract()
+
+NASA
+$ response.css ('div.bg-card-canvas> div.headline ::attr(href)').extract()
 
