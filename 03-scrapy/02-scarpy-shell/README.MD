@@ -66,3 +66,18 @@ $ response.css ('div.quote> span > a ::attr(href)').extract()
 NASA
 $ response.css ('div.bg-card-canvas> div.headline ::attr(href)').extract()
 
+XPATH
+$ response.xpath('/html/head/title').extract()
+$ response.xpath('//title').extract() 
+$ response.xpath('/html/body/div/div[2]/div[1]').extract()
+$ response.xpath('/html/body/div/div[2]/div[1]/text()').extract()
+$ response.xpath("//div [@class = 'quote']").extract()
+$ response.xpath("//div [@class='quote']/span[@class='text']").extract_first()
+$ response.xpath("//div [@class = 'quote']/span[@class='text']/text()").extract_first()
+$ response.xpath("//div [@class = 'quote']/span/a/@href").extract_first()
+
+## scrapy startproject arania-basica
+
+
+
+
