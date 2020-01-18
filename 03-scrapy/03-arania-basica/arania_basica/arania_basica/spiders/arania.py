@@ -2,7 +2,7 @@ import scrapy
 
 def guardar_datos(titulo, precio, imagen):
     import csv
-    with open('datos.csv','ab',) as csvfile:
+    with open('datos.csv','a',newline='') as csvfile:
         spamwriter = csv.writer(csvfile, delimiter=',')
 
         data = list(zip(titulo, precio, imagen))
@@ -35,7 +35,7 @@ class IntroSpider(scrapy.Spider):
                 p =  "http://books.toscrape.com/"+p
                 self.lista_categorias.append(p)
             print(self.lista_categorias)
-            for p in self.lista_categorias[1:]:
+            for p in self.lista_categorias:
                 yield scrapy.Request(p, callback=self.parse)
                 self.bandera = True
         else:
@@ -54,13 +54,3 @@ class IntroSpider(scrapy.Spider):
             print(precio_float)
             guardar_datos(titulos, precio_float, lista_imagenes)
             
-            
-
-               
-
-
-
-
-
-     
-
