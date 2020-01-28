@@ -13,6 +13,12 @@ class SoloCapsulasPipeline(object):
             raise DropItem('No tiene capsula')
         else:
             return item
+
+class TransformarTituloMinusculas(object):
+    def process_item(self, item, spider):
+        titulo = item['titulo']
+        item['titul'] = titulo.lower()
+        return item
         
 
 class AraniaFybecaPipeline(object):

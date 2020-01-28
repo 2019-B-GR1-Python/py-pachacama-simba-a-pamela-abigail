@@ -5,7 +5,7 @@ from scrapy.loader import ItemLoader
 from scrapy.loader.processors import TakeFirst
 
 class AraniaFybeca(scrapy.Spider):
-    name = 'fybeca'
+    name = "fybeca"
     urls = [
         'https://www.fybeca.com/FybecaWeb/pages/search-results.jsf?cat=238&s=150Ypp=25'
     ]
@@ -24,10 +24,16 @@ class AraniaFybeca(scrapy.Spider):
                     item = ProductoFybeca(),
                     selector = producto
                 )
-                producto_loader.default_output_processor=TakeFirst()
+                #producto_loader.default_output_processor = TakeFirst()
+
                 producto_loader.add_css(
                     'titulo',
                     'a.name::text'
+                )
+
+                producto_loader.add_xpath(
+                    'imagen',
+                    'div[contains(@class,"detail")]/a[contains(@class,"image")]/img[contains(@id,"gImg")]/@src'
                 )
                 yield producto_loader.load_item()
     

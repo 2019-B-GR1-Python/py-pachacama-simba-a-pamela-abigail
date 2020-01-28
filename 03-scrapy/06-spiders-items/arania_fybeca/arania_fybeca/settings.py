@@ -66,6 +66,7 @@ ROBOTSTXT_OBEY = True
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     'arania_fybeca.pipelines.SoloCapsulasPipeline': 300,
+     'arania_fybeca.pipelines.TransformarTituloMinusculas': 200,
 }
 FEED_FORMAR ='json'
 FEED_URI = 'tmp/productos-fybeca.json'
