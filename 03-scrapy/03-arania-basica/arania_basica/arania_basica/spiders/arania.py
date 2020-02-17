@@ -1,11 +1,11 @@
 import scrapy
 
-def guardar_datos(titulo, precio, imagen):
+def guardar_datos(titulo,precio,imagenes):
     import csv
     with open('datos.csv','ab',) as csvfile:
         spamwriter = csv.writer(csvfile, delimiter=',')
 
-        data = list(zip(titulo, precio, imagen))
+        data = list(zip(titulo,precio, imagenes))
         for row in data:
             row = list(row)
             spamwriter.writerow(row)
@@ -35,10 +35,14 @@ class IntroSpider(scrapy.Spider):
                 p =  "http://books.toscrape.com/"+p
                 self.lista_categorias.append(p)
             print(self.lista_categorias)
-            for p in self.lista_categorias[1:]:
-                yield scrapy.Request(p, callback=self.parse)
+            print(len(self.lista_categorias))
+            for p in range (0,len(self.lista_categorias)):
+                yield scrapy.Request(self.lista_categorias[p], callback=self.parse)
                 self.bandera = True
+                print("entro")
+                
         else:
+            
             etiqueta_contenedora = response.css('article.product_pod')
             titulos = etiqueta_contenedora.css('h3 > a::text').extract()
             precios = etiqueta_contenedora.css('div.product_price > p.price_color::text').extract()
@@ -48,11 +52,12 @@ class IntroSpider(scrapy.Spider):
             for p in imagenes:
                 p = "http://books.toscrape.com"+p[11:]
                 lista_imagenes.append(p)
-
-            print(titulos)
-            print(lista_imagenes)
-            print(precio_float)
+            cadena=[]
+            
+            #print(cadena)
             guardar_datos(titulos, precio_float, lista_imagenes)
+            #for p in self.lista_categorias[1:]:
+               #yield scrapy.Request(p, callback=self.parse)
             
             
 
