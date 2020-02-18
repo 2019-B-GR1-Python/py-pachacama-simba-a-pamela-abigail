@@ -65,11 +65,11 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'arania_fybeca.pipelines.SoloCapsulasPipeline': 300,
-     'arania_fybeca.pipelines.TransformarTituloMinusculas': 200,
+   #'arania_fybeca.pipelines.SoloCapsulasPipeline': 300,
+    # 'arania_fybeca.pipelines.TransformarTituloMinusculas': 200,
 }
-FEED_FORMAR ='json'
-FEED_URI = 'tmp/productos-fybeca.json'
+FEED_FORMAR ='csv'
+FEED_URI = 'tmp/productos-fybeca.csv'
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
 #AUTOTHROTTLE_ENABLED = True

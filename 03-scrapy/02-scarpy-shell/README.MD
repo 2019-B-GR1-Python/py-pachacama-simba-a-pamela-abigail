@@ -10,6 +10,8 @@ pip install scrapy
 
 conda install -c conda-forge scrapy  
 
+conda install -c conda-forge/label/cf201901 scrapy
+
 ``` 
 
 o una alternativa es 
