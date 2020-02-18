@@ -75,16 +75,16 @@ class AraniaCrawlPelis(CrawlSpider):
 
     def parse_page(self, response):
         titulo = response.css(
-           'div.home_post_cont post_box > div > h3.hover_caption_caption > div.home_post_content > div.in_title :: text'
+           'div.home_post_cont post_box > div > h3.hover_caption_caption > div.home_post_content > div.in_title::text'
         ).extract()
         genero = response.css(
-           'div.home_post_cont post_box > div > h3.hover_caption_caption > div.home_post_content > div.home_post_cat > a ::text'
+           'div.home_post_cont post_box > div > h3.hover_caption_caption > div.home_post_content > div.home_post_cat > a::text'
         ).extract()
         detalle = response.css(
             'div.home_post_cont post_box > div > h3.hover_caption_caption > div.home_post_content > p::text'
         ).extract()
         imagen = response.css(
-            'div.home_post_cont post_box > div > img ::attr(src)'
+            'div.home_post_cont post_box > div > img::attr(src)'
         ).extract()
         print(titulo,genero,detalle,imagen)
 
