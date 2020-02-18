@@ -15,12 +15,27 @@ def transformar_url_imagen(texto):
     cadena_texto= '../..'
     return texto.replace(cadena_texto, url_fybeca)
 
+def transformar_precio(texto):
+    return float(texto[12:-26])
+
 
 class ProductoFybeca(scrapy.Item):
     titulo = scrapy.Field()
     imagen = scrapy.Field(
         input_processor = MapCompose(
             transformar_url_imagen
+        ),
+        output_processor = TakeFirst()
+    )
+    precio_normal = scrapy.Field(
+        input_processor = MapCompose(
+            transformar_precio
+        ),
+        output_processor = TakeFirst()
+    )
+    precio_descuento = scrapy.Field(
+        input_processor = MapCompose(
+            transformar_precio
         ),
         output_processor = TakeFirst()
     )
