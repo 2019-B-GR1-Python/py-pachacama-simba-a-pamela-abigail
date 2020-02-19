@@ -59,8 +59,8 @@ class IntroSpider(scrapy.Spider):
                 lista_imagenes.append(p)
             cadena=[]
             
-            #print(cadena)
-            guardar_datos(titulos, precio_float, lista_imagenes)
+            print(titulos)
+            #guardar_datos(titulos, precio_float, lista_imagenes)
             #for p in self.lista_categorias[1:]:
                #yield scrapy.Request(p, callback=self.parse)
             
