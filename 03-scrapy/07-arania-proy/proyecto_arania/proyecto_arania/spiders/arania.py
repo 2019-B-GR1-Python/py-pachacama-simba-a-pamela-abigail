@@ -13,12 +13,12 @@ def exportar_csv(titulo,genero,detalle,imagen):
            spamwriter.writerow(row)
 
 class AraniaCrawlPelis(CrawlSpider):
-    name = 'cinecalidad' #
+    name = 'novicompu' #
     allowed_domains = [
-        'cinecalidad.to'
+        'novicompu.com'
     ]
     start_urls = [
-        'https://www.cinecalidad.to'
+        'https://www.novicompu.com/'
     ]
     
     regla_uno = ( 
@@ -27,18 +27,12 @@ class AraniaCrawlPelis(CrawlSpider):
     )
     # busque en un link especifico con partes d ela url, segmentos de busqeuda
     url_segmento_permitido = ( # busque en un sitio especifico
-        'genero-peliculas/accion',
-        'genero-peliculas/infantil',
-        'genero-peliculas/comedia',
-        'genero-peliculas/terror',
-        'genero-peliculas/ciencia-ficcion',
-        'peliculas/2000',
-        'peliculas/2001',
-        'peliculas/2005',
-        'peliculas/2010',
-        'peliculas/2018',
-        'peliculas/2019',
-        'peliculas/2020',
+        '12-laptops-pcs-cpu',
+        '7-celulares-tablets-smart-bands',
+        '79-televisores',
+        '110-impresoras-scanners',
+        '78-audio-video',
+        '169-entretenimiento',
     )
     regla_dos = (
         Rule(
@@ -50,15 +44,11 @@ class AraniaCrawlPelis(CrawlSpider):
     )
     
     url_segmento_restringido = (
-        'genero-peliculas/romance',
-        'genero-peliculas/drama',
-        'genero-peliculas/crimen',
-        'peliculas/2003',
-        'peliculas/2004',
-        'peliculas/2007',
-        'peliculas/2008',
-        'peliculas/2015',
-        'peliculas/2014',
+        '99-deportes',
+        '100-hogar',
+        '120-juguetes',
+        '101-accesorios-para-vehiculos',
+        '296-sillas-de-oficina',
     )
     regla_tres = (
         Rule(
@@ -71,21 +61,25 @@ class AraniaCrawlPelis(CrawlSpider):
     )
     
     
-    rules = regla_dos
+    rules = regla_uno
 
     def parse_page(self, response):
-        titulo = response.css(
-           'div.home_post_cont post_box > div > h3.hover_caption_caption > div.home_post_content > div.in_title::text'
+        def precio_f(precio):
+            return float(precio[1::])
+
+        categorias = response.css(
+           'div.container > div.row > div > div.addon-box > div.products > div.item > div > div.product-info > div.category-name > a::Text'
         ).extract()
-        genero = response.css(
-           'div.home_post_cont post_box > div > h3.hover_caption_caption > div.home_post_content > div.home_post_cat > a::text'
+        nombre= response.css(
+            'div.container > div.row > div > div.addon-box > div.products > div.item > div > div.product-info > div.product-name > a::Text'
         ).extract()
-        detalle = response.css(
-            'div.home_post_cont post_box > div > h3.hover_caption_caption > div.home_post_content > p::text'
+        precio = response.css(
+            'div.container > div.row > div > div.addon-box > div.products > div.item > div > div.product-info > div.div.content_price > span::Text'
         ).extract()
         imagen = response.css(
-            'div.home_post_cont post_box > div > img::attr(src)'
+             'div.container > div.row > div > div.addon-box > div.products > div.item > div > div.preview > a > img.img-responsive::attr(data-src)'
         ).extract()
+        
         print(titulo,genero,detalle,imagen)
 
         exportar_csv(titulo,genero,detalle,imagen)
